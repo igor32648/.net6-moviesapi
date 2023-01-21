@@ -30,3 +30,12 @@ C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\obj\Debug\net6.0\refint\m
 C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\obj\Debug\net6.0\moviesapi.pdb
 C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\obj\Debug\net6.0\moviesapi.genruntimeconfig.cache
 C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\obj\Debug\net6.0\ref\moviesapi.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\Humanizer.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\senha\OneDrive\Documentos\moviesapi\moviesapi\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll

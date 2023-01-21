@@ -5,6 +5,7 @@ namespace moviesapi.Models
     public class Movie
     {
         [Key]
+        [Required]
         public int Id { get; set; }
         [Required(ErrorMessage = "Title is missing.")]
         [MaxLength(100, ErrorMessage = "Title is too long.")]
