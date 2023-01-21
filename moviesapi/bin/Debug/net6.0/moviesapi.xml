@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>moviesapi</name>
+    </assembly>
+    <members>
+        <member name="M:moviesapi.Controllers.MovieController.AddMovie(moviesapi.Data.Dto.CreateMovieDto)">
+            <summary>
+            Add a movie to the database
+            </summary>
+            <param name="movieDto">Object with the required fields to create a movie</param>
+            <returns>IActionResult</returns>
+            <response code="201">If insertion is successful</response>
+        </member>
+        <member name="M:moviesapi.Controllers.MovieController.GetMovies(System.Int32,System.Int32)">
+             <summary>
+             Get movies from database
+             </summary>
+             <param name="skip">How many movies to skip</param>
+            <param name="take">How many movies to take</param>
+             <returns>IEnumerable</returns>
+             <response code="201">If get method is successful</response>
+        </member>
+        <member name="M:moviesapi.Controllers.MovieController.GetMovieById(System.Int32)">
+            <summary>
+            Add a movie according to id
+            </summary>
+            <param name="id">Movie Id number</param>
+            <returns>IActionResult</returns>
+            <response code="201">If get method is successful</response>
+        </member>
+        <member name="M:moviesapi.Controllers.MovieController.UpdateMovie(System.Int32,moviesapi.Data.Dto.UpdateMovieDto)">
+            <summary>
+            Update a movie's data from database
+            </summary>
+            <param name="id">Movie Id number</param>
+            <param name="updateMovieDto">Object with movie fields updated</param>
+            <returns>IActionResult</returns>
+            <response code="201">If update is successful</response>
+        </member>
+        <member name="M:moviesapi.Controllers.MovieController.UpdateMoviePatch(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{moviesapi.Data.Dto.UpdateMovieDto})">
+            <summary>
+            Update a movie from the database without having to resubmit all the data
+            </summary>
+            <param name="id">Movie Id number</param>
+            <param name="updateMoviePatch">Object with movie required info and field to be updated</param>
+            <returns>IActionResult</returns>
+            <response code="201">If update is successful</response>
+        </member>
+        <member name="M:moviesapi.Controllers.MovieController.DeleteMovie(System.Int32)">
+            <summary>
+            Delete a movie's data from database
+            </summary>
+            <param name="id">Movie Id number</param>
+            <returns>IActionResult</returns>
+            <response code="201">If delete is successful</response>
+        </member>
+    </members>
+</doc>

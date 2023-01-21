@@ -22,6 +22,12 @@ namespace moviesapi.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Add a movie to the database
+        /// </summary>
+        /// <param name="movieDto">Object with the required fields to create a movie</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">If insertion is successful</response>
         [HttpPost]
         public IActionResult AddMovie(
             [FromBody] CreateMovieDto movieDto)
@@ -34,11 +40,25 @@ namespace moviesapi.Controllers
             movie);
         }
 
+        /// <summary>
+        /// Get movies from database
+        /// </summary>
+        /// <param name="skip">How many movies to skip</param>
+        ///<param name="take">How many movies to take</param>
+        /// <returns>IEnumerable</returns>
+        /// <response code="201">If get method is successful</response>
         [HttpGet]
         public IEnumerable<ReadMovieDto> GetMovies([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
             return _mapper.Map<List<ReadMovieDto>>(_context.Movies.Skip(skip).Take(take));
         }
+
+        /// <summary>
+        /// Add a movie according to id
+        /// </summary>
+        /// <param name="id">Movie Id number</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">If get method is successful</response>
         [HttpGet("{id}")]
         public IActionResult GetMovieById(int id)
         {
@@ -48,17 +68,31 @@ namespace moviesapi.Controllers
             return Ok(movieDto);
         }
 
+        /// <summary>
+        /// Update a movie's data from database
+        /// </summary>
+        /// <param name="id">Movie Id number</param>
+        /// <param name="updateMovieDto">Object with movie fields updated</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">If update is successful</response>
         [HttpPut("{id}")]
-        public IActionResult UpdateMovie(int id, [FromBody] UpdateMovieDto movieDto)
+        public IActionResult UpdateMovie(int id, [FromBody] UpdateMovieDto updateMovieDto)
         {
             var movie = _context.Movies.FirstOrDefault(
                 movie => movie.Id == id);
             if (movie == null) return NotFound();
-            _mapper.Map(movieDto, movie);
+            _mapper.Map(updateMovieDto, movie);
             _context.SaveChanges();
             return NoContent();
         }
 
+        /// <summary>
+        /// Update a movie from the database without having to resubmit all the data
+        /// </summary>
+        /// <param name="id">Movie Id number</param>
+        /// <param name="updateMoviePatch">Object with movie required info and field to be updated</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">If update is successful</response>
         [HttpPatch("{id}")]
         public IActionResult UpdateMoviePatch(int id, 
             JsonPatchDocument<UpdateMovieDto> patch)
@@ -81,6 +115,12 @@ namespace moviesapi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Delete a movie's data from database
+        /// </summary>
+        /// <param name="id">Movie Id number</param>
+        /// <returns>IActionResult</returns>
+        /// <response code="201">If delete is successful</response>
         [HttpDelete("{id}")]
         public IActionResult DeleteMovie(int id) 
         {
