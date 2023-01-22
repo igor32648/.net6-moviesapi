@@ -29,6 +29,7 @@ namespace moviesapi.Controllers
         /// <returns>IActionResult</returns>
         /// <response code="201">If insertion is successful</response>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public IActionResult AddMovie(
             [FromBody] CreateMovieDto movieDto)
         {
@@ -46,7 +47,7 @@ namespace moviesapi.Controllers
         /// <param name="skip">How many movies to skip</param>
         ///<param name="take">How many movies to take</param>
         /// <returns>IEnumerable</returns>
-        /// <response code="201">If get method is successful</response>
+        /// <response code="200">If get method is successful</response>
         [HttpGet]
         public IEnumerable<ReadMovieDto> GetMovies([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
@@ -58,7 +59,7 @@ namespace moviesapi.Controllers
         /// </summary>
         /// <param name="id">Movie Id number</param>
         /// <returns>IActionResult</returns>
-        /// <response code="201">If get method is successful</response>
+        /// <response code="200">If get method is successful</response>
         [HttpGet("{id}")]
         public IActionResult GetMovieById(int id)
         {
@@ -74,8 +75,9 @@ namespace moviesapi.Controllers
         /// <param name="id">Movie Id number</param>
         /// <param name="updateMovieDto">Object with movie fields updated</param>
         /// <returns>IActionResult</returns>
-        /// <response code="201">If update is successful</response>
+        /// <response code="202">If update is successful</response>
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
         public IActionResult UpdateMovie(int id, [FromBody] UpdateMovieDto updateMovieDto)
         {
             var movie = _context.Movies.FirstOrDefault(
@@ -90,10 +92,11 @@ namespace moviesapi.Controllers
         /// Update a movie from the database without having to resubmit all the data
         /// </summary>
         /// <param name="id">Movie Id number</param>
-        /// <param name="updateMoviePatch">Object with movie required info and field to be updated</param>
+        /// <param name="patch">Object with movie required info and field to be updated</param>
         /// <returns>IActionResult</returns>
-        /// <response code="201">If update is successful</response>
+        /// <response code="202">If update is successful</response>
         [HttpPatch("{id}")]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
         public IActionResult UpdateMoviePatch(int id, 
             JsonPatchDocument<UpdateMovieDto> patch)
         {
@@ -120,8 +123,9 @@ namespace moviesapi.Controllers
         /// </summary>
         /// <param name="id">Movie Id number</param>
         /// <returns>IActionResult</returns>
-        /// <response code="201">If delete is successful</response>
+        /// <response code="204">If delete is successful</response>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult DeleteMovie(int id) 
         {
             var movie = _context.Movies.FirstOrDefault(
