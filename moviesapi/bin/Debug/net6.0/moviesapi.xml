@@ -19,7 +19,7 @@
              <param name="skip">How many movies to skip</param>
             <param name="take">How many movies to take</param>
              <returns>IEnumerable</returns>
-             <response code="201">If get method is successful</response>
+             <response code="200">If get method is successful</response>
         </member>
         <member name="M:moviesapi.Controllers.MovieController.GetMovieById(System.Int32)">
             <summary>
@@ -27,7 +27,7 @@
             </summary>
             <param name="id">Movie Id number</param>
             <returns>IActionResult</returns>
-            <response code="201">If get method is successful</response>
+            <response code="200">If get method is successful</response>
         </member>
         <member name="M:moviesapi.Controllers.MovieController.UpdateMovie(System.Int32,moviesapi.Data.Dto.UpdateMovieDto)">
             <summary>
@@ -36,16 +36,16 @@
             <param name="id">Movie Id number</param>
             <param name="updateMovieDto">Object with movie fields updated</param>
             <returns>IActionResult</returns>
-            <response code="201">If update is successful</response>
+            <response code="202">If update is successful</response>
         </member>
         <member name="M:moviesapi.Controllers.MovieController.UpdateMoviePatch(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{moviesapi.Data.Dto.UpdateMovieDto})">
             <summary>
             Update a movie from the database without having to resubmit all the data
             </summary>
             <param name="id">Movie Id number</param>
-            <param name="updateMoviePatch">Object with movie required info and field to be updated</param>
+            <param name="patch">Object with movie required info and field to be updated</param>
             <returns>IActionResult</returns>
-            <response code="201">If update is successful</response>
+            <response code="202">If update is successful</response>
         </member>
         <member name="M:moviesapi.Controllers.MovieController.DeleteMovie(System.Int32)">
             <summary>
@@ -53,7 +53,7 @@
             </summary>
             <param name="id">Movie Id number</param>
             <returns>IActionResult</returns>
-            <response code="201">If delete is successful</response>
+            <response code="204">If delete is successful</response>
         </member>
     </members>
 </doc>
